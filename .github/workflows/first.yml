@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       age:
-        description: "years"
+        description: "Age"
         required: true
         type: number
       gender:
