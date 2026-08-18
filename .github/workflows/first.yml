@@ -7,11 +7,30 @@ on:
         description: "My name"
         required: true
         type: string
+      age:
+        description: "years"
+        required: true
+        type: number
+      gender:
+        description: "Martial status"
+        required: true
+        type: choice
+        options:
+          - Male
+          - Female
     
 
 jobs:
   execute:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Name
+        run: echo "${{ inputs.name }}"
+      - name: Age
+        run: echo ${{ inputs.age }}"
+      - name: Gnder
+        run: echo ${{ inputs.gender }}"
 
     steps:
       - name: "Greetings"
