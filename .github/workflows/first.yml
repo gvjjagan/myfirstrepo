@@ -28,6 +28,6 @@ jobs:
       - name: Name
         run: echo "${{ inputs.name }}"
       - name: Age
-        run: echo ${{ inputs.age }}"
+        run: echo ${{ inputs.age }}
       - name: Gnder
-        run: echo ${{ inputs.gender }}"
+        run: echo ${{ inputs.gender }}
