@@ -3,6 +3,10 @@ name: Release-branch-creation
 on:
   workflow_dispatch:
     inputs:
+      release_branch:
+        description: "Release Branch"
+        type: string
+        required: true
       current_release:
         description: "Current Release version"
         type: string
@@ -12,13 +16,36 @@ on:
         type: string
         required: true
 jobs:
-  release_details:
+  modify-release-files:
     runs-on: ubuntu-latest
-
+    permissions: 
+      contents: write
+      pull-requests: write
+      
     steps:
-      - name: Branch_details_Current
+      - name: Checkout release branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_branch }}
+          fetch-depth: 0
+
+      - name: Create feature branch
         run: |
-          echo "Current_release version is: ${{inputs.current_release}}"
-      - name: Branch_details_previous
+          FEATURE_BRANCH="feature/file-modification-${GITHUB_RUN_NUMBER}"
+          echo "FEATURE_BRANCH=$FEATURE_BRANCH" >> "$GITHUB_ENV"
+          git checkout -b "$FEATURE_BRANCH"
+
+      - name: Run modification script
+        env:
+          PREVIOUS_RELEASE: ${{ inputs.previous_release }}
+          CURRENT_RELEASE: ${{ inputs.current_release }}
         run: |
-          echo "Previous_release version is: ${{inputs.previous_release}}"
+          chmod +x ./scripts/modify_files.sh
+          ./scripts/modify_files.sh "$PREVIOUS_RELEASE" "$CURRENT_RELEASE"
+
+      - name: Show changes
+        run: |
+          echo "Files changes:" git -status --short
+          echo "Change Summary:" gitdiff -stat
+
+          
