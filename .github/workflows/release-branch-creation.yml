@@ -16,9 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Branch_details_Current
+      - name: Branch_details
         run: |
           echo "Current_release version is: ${{inputs.current_release}}"
-	  - name: Branhc_details_Previous
-	  	run: |
           echo "Previous_release version is: ${{inputs.previous_release}}"
