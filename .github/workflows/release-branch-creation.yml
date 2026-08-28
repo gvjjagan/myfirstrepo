@@ -1,22 +1,23 @@
-name: "Release branch creation"
-
+name: "Release-branch-creation"
 on:
   workflow_dispatch:
-      inputs:
-        current_release:
-          description: "Enter the current release"
-          type: string
-          required: true
-        previous_release:
-          description: "Enter the previous release"
-          type: string
-          required: true
-      Jobs:
-        branch_details:
+    inputs:
+      current_release:
+        description: "Current Release version"
+        type: string
+        required: true
+      previous_release:
+        description: "Previous Release vserion"
+        type: string
+        required :true
+
+
+      jobs:
+        release_details:
           runs-on: ubuntu-latest
 
       steps:
-        - name : release_branch_checkout
+        - name: Branch_details
           run: |
-                echo "Current release version is : ${{inputs.curent_release}}
-                echo "Previous release version is : ${{inputs.previous_release}}
+            echo "Current_release version is: ${{inputs.current_release}}
+            echo "Previous_release version is: ${{inputs.previous_release}}
