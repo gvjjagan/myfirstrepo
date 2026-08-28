@@ -9,7 +9,7 @@ on:
       previous_release:
         description: "Previous Release vserion"
         type: string
-        required :true
+        required: true
 
 
       jobs:
