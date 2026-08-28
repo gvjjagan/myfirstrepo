@@ -7,12 +7,12 @@ on:
         description: "Release Branch"
         type: string
         required: true
-      current_release:
-        description: "Current Release version"
-        type: string
-        required: true
       previous_release:
         description: "Previous Release vserion"
+        type: string
+        required: true
+      current_release:
+        description: "Current Release version"
         type: string
         required: true
 jobs:
