@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:"schemaLocation"http"//www.liquibase.org/xml/ns/databasechangelog
+                            http"//www.liquibase.org/xml/ns/databasechangelog/dbchangelog-4.25.xsd">
+  <preConditions>
+      <dbms type="Oracle/>
+      <runningAs="Jaga_OWNER"/>
+      </preConditions>
+
+  <changeSet id="R108-GCP-01" author="jagadish.g@abc.com" runOnChange="true" labels="IN_GLOBAL">
+    <comment>JMT-12345</comment>
+    <sqlFile path="ddl/tables/jaga.sql" relativeToChangelogFile="true" endDelimiter="/" splitStatements="false" stripComments="false" />
+  </changeset>
+
+  <changeSet id="R108-GCP-02" author="jagadish.g@abc.com" runOnChange="true" labels="IN_GLOBAL">
+    <comment>JMT-56789</comment>
+    <sqlFile path="ddl/tables/jagadish.sql" relativeToChangelogFile="true" endDelimiter="/" splitStatements="false" stripComments="false" />
+  </changeset>
+
+  <changeSet id="R108-GCP-003" author="jagadish.g@abc.com" runOnChange="true" labels="IN_GLOBAL">
+    <comment>JMT-99999</comment>
+    <sqlFile path="ddl/tables/jagan.sql" relativeToChangelogFile="true" endDelimiter="/" splitStatements="false" stripComments="false" />
+  </changeset>
+
+  </datebaseChangeLog>
