@@ -48,4 +48,25 @@ jobs:
           echo "Files changes:" git -status --short
           echo "Change Summary:" gitdiff -stat
 
-          
+      - name: Commit Changes
+        run: |
+          if git diff --quite; then
+            echo "No changes detected"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .
+          git commit -m "modify release files with current version"
+      
+      - name: Push feature branch
+        run: |
+          git push origin "$FEATURE_BRANCH"
+
+      - name: Create pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create --base "${{ inputs.release_branch }}" --head "$FEATURE_BRANCH" --title "Release File Modification - $FEATURE_BRANCH" --body "Automated using modify-files.sh"
+      
