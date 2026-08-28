@@ -17,6 +17,6 @@ on:
 
       steps:
         - name : release_branch_checkout
-            run: |
-                 echo "Current release version is : ${{inputs.curent_release}}
-                 echo "Previous release version is : ${{inputs.previous_release}}
+          run: |
+                echo "Current release version is : ${{inputs.curent_release}}
+                echo "Previous release version is : ${{inputs.previous_release}}
