@@ -1,4 +1,5 @@
-name: "Release-branch-creation"
+name: Release-branch-creation
+
 on:
   workflow_dispatch:
     inputs:
