@@ -50,7 +50,7 @@ jobs:
 
       - name: Commit Changes
         run: |
-          if git diff --quite; then
+          if git diff --quiet; then
             echo "No changes detected"
             exit 0
           fi
