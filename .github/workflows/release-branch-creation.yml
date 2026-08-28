@@ -13,9 +13,9 @@ on:
         required: true
 
 
-      jobs:
-        release_details:
-          runs-on: ubuntu-latest
+ jobs:
+   release_details:
+     runs-on: ubuntu-latest
 
       steps:
         - name: Branch_details
