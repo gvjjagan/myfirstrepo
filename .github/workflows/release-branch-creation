@@ -1,0 +1,22 @@
+name: "Release branch creation"
+
+on:
+  workflow_dispatch:
+      inputs:
+        current_release:
+          description: "Enter the current release"
+          type: string
+          required: true
+        previous_release:
+          description: "Enter the previous release"
+          type: string
+          required: true
+      Jobs:
+        branch_details:
+          runs-on: ubuntu-latest
+
+      steps:
+        - name : release_branch_checkout
+            run: |
+                 echo "Current release version is : ${{inputs.curent_release}}
+                 echo "Previous release version is : ${{inputs.previous_release}}
